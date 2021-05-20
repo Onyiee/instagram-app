@@ -1,0 +1,14 @@
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem 0 2rem 0;
+}
+img {
+    width: 250px;
+    height: 400px;
+    margin-right: 1rem;
+]}
+
+* {
+    font-family: sans-serif;
+}

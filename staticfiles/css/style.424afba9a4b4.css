@@ -1,0 +1,11 @@
+img {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 400px;
+}
+
+* {
+    background-color: burlywood;
+}
