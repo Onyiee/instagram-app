@@ -7,19 +7,28 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<form method="post"
-      ENCTYPE="multipart/form-data"
->
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Post Photo</button>
-</form>
-<div class="images">
-    {% for photo in photos %}
+    {% if user.is_authenticated %}
+        <form method="post" ENCTYPE="multipart/form-data">
+            <p>Hello {{ user.username }}</p>
+            <a href="{% url 'logout' %}">LogOut</a>
 
-        <img src="{{ photo.photo.url }}"/>
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Post Photo</button>
+        </form>
+        <div class="images">
+            {% for photo in photos %}
 
-    {% endfor %}
+                <img src="{{ photo.photo.url }}"/>
+
+            {% endfor %}
+
+            {% else %}
+                <p>You need to log in first</p>
+                <a href="{% url 'login' %}">Login Here|</a>
+                <a href="{% url 'signup' %}">Sign Up</a>
+    {% endif %}
+
 </div>
 </body>
 </html>
