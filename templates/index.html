@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Instagram</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
 </head>
 <body>
     {% if user.is_authenticated %}
@@ -16,19 +17,20 @@
                 {{ form.as_p }}
                 <button type="submit">Post Photo</button>
         </form>
-        <div class="images">
-            {% for photo in photos %}
+            <div class="images">
+                {% for photo in photos %}
 
-                <img src="{{ photo.photo.url }}"/>
+                    <img src="{{ photo.photo.url }}"/>
 
-            {% endfor %}
+                {% endfor %}
 
-            {% else %}
+                {% else %}
                 <p>You need to log in first</p>
                 <a href="{% url 'login' %}">Login Here|</a>
                 <a href="{% url 'signup' %}">Sign Up</a>
+          </div>
     {% endif %}
 
-</div>
+
 </body>
 </html>
