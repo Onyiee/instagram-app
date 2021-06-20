@@ -2,13 +2,34 @@
     display: flex;
     flex-wrap: wrap;
     margin: 2rem 0 2rem 0;
+    justify-content: space-evenly;
 }
 img {
     width: 250px;
     height: 400px;
     margin-right: 1rem;
-]}
+}
+.img-box{
+    display: flex;
+    flex-direction: column;
+}
+.delete-btn {
+    border-radius: 3rem;
+    background-color: #205067;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    color: white;
+}
+.delete-btn a {
+     background-color: #205067;
+}
 
 * {
     font-family: sans-serif;
+    background-color: #e8e8e8;
+}
+a{
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
 }

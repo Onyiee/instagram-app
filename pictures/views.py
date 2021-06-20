@@ -29,3 +29,8 @@ class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signUp.html'
+
+
+def delete(request, id):
+    photo.objects.filter(id=id).delete()
+    return redirect('homepage')
