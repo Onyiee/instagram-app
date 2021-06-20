@@ -1,3 +1,4 @@
+{% load socialaccount %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -8,6 +9,7 @@
 
 </head>
 <body>
+
     {% if user.is_authenticated %}
         <form method="post" ENCTYPE="multipart/form-data">
             <p>Hello {{ user.username }}</p>
@@ -19,16 +21,21 @@
         </form>
             <div class="images">
                 {% for photo in photos %}
-
-                    <img src="{{ photo.photo.url }}"/>
-
+                    <div class="img-box">
+                         <img height="500px" width="400px" src="{{ photo.photo.url }}"/>
+                         <button class="delete-btn">
+                             <a href="{% url 'delete' photo.id %}">Delete</a>
+                         </button>
+                    </div>
                 {% endfor %}
 
+              </div>
                 {% else %}
                 <p>You need to log in first</p>
                 <a href="{% url 'login' %}">Login Here|</a>
-                <a href="{% url 'signup' %}">Sign Up</a>
-          </div>
+                <a href="{% url 'signup' %}">Sign Up</a>|
+                 <a href="{% provider_login_url 'google' %}">Login with Google</a>
+
     {% endif %}
 
 
